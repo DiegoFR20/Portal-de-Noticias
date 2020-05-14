@@ -14,6 +14,11 @@ NoticiasDAO.prototype.salvarNoticia = function (noticia, callback) {
     this._connection.query('insert into noticias set ?', noticia, callback);
 }
 
+NoticiasDAO.prototype.deletarNoticia = function(id_noticia, callback){
+    console.log(`DAO ${id_noticia.id_noticia}`);
+    this._connection.query('delete from noticias where id_noticia = '+ parseInt(id_noticia.id_noticia), callback);
+}
+
 NoticiasDAO.prototype.get5UltimasNoticias = function(callback){
     this._connection.query('select * from noticias order by data_criacao desc limit 5', callback);
 }

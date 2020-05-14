@@ -22,7 +22,19 @@ module.exports.salvar = function (application, req, res) {
     var connection = application.config.dbConnection();
     var noticiasModel = new application.app.models.NoticiasDAO(connection);
 
-    noticiasModel.salvarNoticia(noticia, function (error, result) {
+    noticiasModel.salvarNoticia(noticia, (error, result) => {
         res.redirect('/noticias');
+    });
+}
+
+module.exports.deletar = (application, req, res) => {
+    var connection = application.config.dbConnection();
+    var noticiasDAO = new application.app.models.NoticiasDAO(connection);
+    
+    var id_noticia = req.params;
+    
+    noticiasDAO.deletarNoticia(id_noticia, (error, result) => {
+        console.log(id_noticia.id_noticia);
+        res.redirect("/noticias");
     });
 }
