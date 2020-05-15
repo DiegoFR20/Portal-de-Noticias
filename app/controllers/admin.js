@@ -18,13 +18,12 @@ module.exports.atualizar = function (application, req, res) {
     var noticiasModel = new application.app.models.NoticiasDAO(connection);
     var erros = req.validationErrors();
     var id_noticia = req.params;
-    console.log(noticia);
 
     req.assert('titulo', 'Título é obrigatório').notEmpty();
     req.assert('resumo', 'Resumo é obrigatório').notEmpty();
     req.assert('resumo', 'Resumo deve conter entre 10 e 100 caracteres').len(10, 100);
     req.assert('autor', 'Autor é obrigatório').notEmpty();
-    req.assert('data_noticia', 'Data é obrigatória').notEmpty().isDate({ format: 'YYYY-MM-DD' });
+    req.assert('data_noticia', 'Data é obrigatória').notEmpty().isDate({ format: 'yyyy-MM-dd' });
     req.assert('noticia', 'Noticia é obrigatória').notEmpty();   
 
     if (erros) {
@@ -47,7 +46,7 @@ module.exports.salvar = function (application, req, res) {
     req.assert('resumo', 'Resumo é obrigatório').notEmpty();
     req.assert('resumo', 'Resumo deve conter entre 10 e 100 caracteres').len(10, 100);
     req.assert('autor', 'Autor é obrigatório').notEmpty();
-    req.assert('data_noticia', 'Data é obrigatória').notEmpty().isDate({ format: 'YYYY-MM-DD' });
+    req.assert('data_noticia', 'Data é obrigatória').notEmpty().isDate({ format: 'yyyy-MM-dd' });
     req.assert('noticia', 'Noticia é obrigatória').notEmpty();
 
     if (erros) {
