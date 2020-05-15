@@ -18,6 +18,7 @@ module.exports.atualizar = function (application, req, res) {
     var noticiasModel = new application.app.models.NoticiasDAO(connection);
     var erros = req.validationErrors();
     var id_noticia = req.params;
+    console.log(noticia);
 
     req.assert('titulo', 'Título é obrigatório').notEmpty();
     req.assert('resumo', 'Resumo é obrigatório').notEmpty();

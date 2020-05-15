@@ -61,7 +61,7 @@
 		<% } %>
 		<div class="row">
 			<div class="col-md-12">
-				<form action="/noticia/editar:<%=noticia[0].id_noticia%>" method="post">
+				<form action="/noticia/editar<%=noticia[0].id_noticia%>" method="post">
 					<div class="form-group">
 						<label for="titulo">Título:</label>
 						<input type="text" class="form-control" id="titulo" value="<%=noticia[0].titulo%>" name="titulo">
